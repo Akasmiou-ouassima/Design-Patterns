@@ -15,6 +15,6 @@ public class Chantilly extends Decorateur{
 
     @Override
     public String getDescription() {
-        return boisson.getDescription()+" à la Chantilly";
+        return boisson.getDescription()+" au Chantilly";
     }
 }
