@@ -8,8 +8,7 @@ public class JsonSerializerd <T>{
     public String toJson(T object){
         ObjectMapper objectMapper=new ObjectMapper();
         try{
-            String json = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(object);
-            return json;
+            return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(object);
 
         }catch (JsonProcessingException e){
             throw  new RuntimeException(e);

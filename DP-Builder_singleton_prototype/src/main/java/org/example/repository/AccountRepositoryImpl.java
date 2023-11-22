@@ -13,13 +13,14 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class AccountRepositoryImpl implements AccountRepository {
-
-    private static final AccountRepositoryImpl accountRepository; static {
+   // singleton
+    private static final AccountRepositoryImpl accountRepository;
+    static {
         System.out.println("Singleton instantiation");
         accountRepository=new AccountRepositoryImpl();
     }
 
-    private AccountRepositoryImpl(){
+    public AccountRepositoryImpl(){
 
     }
     private Map<Long,BankAccount> bankAccountMap=new HashMap<>();
@@ -77,10 +78,14 @@ public class AccountRepositoryImpl implements AccountRepository {
         System.out.println("Size : "+bankAccountMap.values().size());
         System.out.println("******************************");
     }
+    // singleton
     public static AccountRepositoryImpl getInstance(){
-         /* if(accountRepository==null){
+         /*  method 2 to create singleton
+         if(accountRepository==null){
             System.out.println("Singleton instantiation");
             accountRepository=new AccountRepositoryImpl();
+            accountRepository.populateData();
+
         }*/
         return accountRepository;
     }
